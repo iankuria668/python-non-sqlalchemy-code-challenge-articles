@@ -9,6 +9,7 @@ class Article:
         self.author = author
         self.magazine = magazine
         self.title = title
+        
         Article.all_articles.append(self)
 
     @property
@@ -21,6 +22,7 @@ class Article:
             self._author = value
         else:
             raise ValueError("author must be an instance of Author")
+
 
     @property
     def magazine(self):
