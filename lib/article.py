@@ -1,6 +1,6 @@
 class Article:
     def __init__(self,title):
-        if not isinstance(title,str) or not(5<=len(title)<=50):
+        if not isinstance(title,str) or not(5<=len<=50):
             raise ValueError('Name should be entered')
         self.title = title
 
