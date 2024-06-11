@@ -2,10 +2,15 @@ class Article:
     all_articles = []
 
     def __init__(self, author, magazine, title):
-        self._author = None
-        self._magazine = None
-        self._title = None
+        if not isinstance(title, str) or not (5 <= len(title) <= 50):
+            raise ValueError("Title must be a string between 5 and 50 characters")
 
+        if not isinstance(author, Author):
+            raise ValueError("author must be an instance of Author")
+
+        if not isinstance(magazine, Magazine):
+            raise ValueError("magazine must be an instance of Magazine")
+        
         self.author = author
         self.magazine = magazine
         self.title = title
@@ -47,9 +52,10 @@ class Article:
 
 class Author:
     def __init__(self, name):
-        if not isinstance(name, str) or len(name) == 0:
-            raise ValueError('Name should be a non-empty string')
-        self._name = name
+        if isinstance(name, str) and len(name) > 0:
+            self._name = name
+        else:
+            raise ValueError("Name must be a non-empty string")
 
     @property
     def name(self):
