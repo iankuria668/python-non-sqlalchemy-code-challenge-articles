@@ -9,7 +9,7 @@ class Article:
         self.author = author
         self.magazine = magazine
         self.title = title
-        
+
         Article.all_articles.append(self)
 
     @property
@@ -122,4 +122,3 @@ class Magazine:
         if not cls.all_magazines:
             return None
         return max(cls.all_magazines, key=lambda magazine: len(magazine.articles()))
-
